@@ -1,14 +1,10 @@
 export const BASE_URL = "https://auth.nomoreparties.co";
 
 function _handleResponse(response) {
-try {
   if (response.ok) {
     return response.json();
   }
-} catch (e) {
-  return e;
-}
-return Promise.reject(response.status);
+  return Promise.reject(response.status);
 }
 
 export const register = (data) => {
@@ -18,8 +14,7 @@ export const register = (data) => {
       "Content-Type": "application/json",
     },
     body: JSON.stringify(data),
-  })
-    .then(_handleResponse);
+  }).then(_handleResponse);
 };
 
 export const login = (data) => {
@@ -29,8 +24,7 @@ export const login = (data) => {
       "Content-Type": "application/json",
     },
     body: JSON.stringify(data),
-  })
-  .then(_handleResponse);
+  }).then(_handleResponse);
 };
 
 export const checkToken = (token) => {
@@ -40,6 +34,5 @@ export const checkToken = (token) => {
       "Content-Type": "application/json",
       Authorization: `Bearer ${token}`,
     },
-  })
-  .then(_handleResponse);
+  }).then(_handleResponse);
 };

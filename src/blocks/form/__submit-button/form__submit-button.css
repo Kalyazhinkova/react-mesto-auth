@@ -17,7 +17,7 @@
   text-align: center;
 }
 
-.popup__button:hover {
+.form__submit-button:hover {
   background-color: rgba(255, 255, 255, 1);
   opacity: 0.85;
 }

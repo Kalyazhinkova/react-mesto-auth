@@ -4,4 +4,4 @@
 
  В этой проектной работе использовались хуки useState, useEffect, медиа-запросы, настроена авторизация и проверка пользователя по токену
 
-Ссылка на страницу https://kalyazhinkova.github.io/mesto-react/
+Ссылка на страницу https://kalyazhinkova.github.io/react-mesto-auth/

@@ -8,7 +8,6 @@ function Card (props) {
   const isLiked = card.likes.some(i => i._id === currentUser._id);
  
   return (
-    <>
     <article className="element">
       <img className="element__image" alt={`${card.name}`} src={card.link} onClick={() => {onClick(card);}}/>
       {isOwn && <button className="element__trash" type="button" onClick={() => {onDelete(card);}}></button>}
@@ -20,7 +19,6 @@ function Card (props) {
         </div>
       </div>
     </article>
-  </>
   );
 }
 

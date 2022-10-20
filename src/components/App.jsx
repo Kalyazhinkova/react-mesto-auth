@@ -1,7 +1,7 @@
 import Header from "./Header";
 import Main from "./Main";
 import api from "../utils/Api";
-import * as Auth from "./Auth";
+import * as Auth from "../utils/Auth";
 import Footer from "./Footer";
 import Login from "./Login";
 import Register from "./Register";
@@ -92,8 +92,7 @@ function App() {
     api
       .deleteCardById(card._id)
       .then(() => {
-        const updatedCards = cards.filter(({ _id }) => _id !== card._id);
-        setCards(updatedCards);
+        setCards((state) => state.filter(item => item._id !== card._id));
       })
       .catch((err) => {
         console.log(err);
@@ -104,8 +103,8 @@ function App() {
   function handleUpdateUser(name, about) {
     api
       .setNewUserInfo(name, about)
-      .then((user) => {
-        setCurrentUser(user);
+      .then((userData) => {
+        setCurrentUser({...currentUser, ...userData});
         closeAllPopups();
       })
       .catch((err) => {

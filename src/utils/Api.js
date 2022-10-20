@@ -5,7 +5,7 @@ class Api {
     this._config = config;
   }
 
-  _handleResponce(res) {
+  _handleResponse(res) {
     if (res.ok) {
       return res.json();
     }
@@ -17,7 +17,7 @@ class Api {
       `${this._config.baseUrl}/users/me`, {
       headers: this._config.headers
     })
-      .then(this._handleResponce)
+      .then(this._handleResponse)
   }
 
   setNewUserInfo(name, about) {
@@ -30,7 +30,7 @@ class Api {
         about: about
       })
     })
-      .then(this._handleResponce)
+      .then(this._handleResponse)
   }
 
   setNewAvatar(userInfo) {
@@ -42,7 +42,7 @@ class Api {
         avatar: userInfo.avatar,
       })
     })
-      .then(this._handleResponce)
+      .then(this._handleResponse)
   }
 
   getInitialCards() {
@@ -51,7 +51,7 @@ class Api {
       headers: this._config.headers
     }
     )
-      .then(this._handleResponce)
+      .then(this._handleResponse)
   }
 
   createCard(card) {
@@ -61,7 +61,7 @@ class Api {
       headers: this._config.headers,
       body: JSON.stringify({name: card.name, link: card.link})
     })
-      .then(this._handleResponce)
+      .then(this._handleResponse)
   }
 
   deleteCardById(id) {
@@ -70,7 +70,7 @@ class Api {
       method: 'DELETE',
       headers: this._config.headers
     })
-      .then(this._handleResponce)
+      .then(this._handleResponse)
   }
 
   likeCard( id, haveNotLiked ) {
@@ -81,7 +81,7 @@ class Api {
         method: 'PUT',
         headers: this._config.headers
       })
-        .then(this._handleResponce)
+        .then(this._handleResponse)
     }
      else {
       return fetch(
@@ -89,7 +89,7 @@ class Api {
         method: 'DELETE',
         headers: this._config.headers
       })
-        .then(this._handleResponce)
+        .then(this._handleResponse)
     }
   }
 }
